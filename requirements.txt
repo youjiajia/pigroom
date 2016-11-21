@@ -1,6 +1,7 @@
 backports-abc==0.5
 backports.ssl-match-hostname==3.5.0.1
 certifi==2016.9.26
+redis==2.10.5
 singledispatch==3.4.0.3
 six==1.10.0
 tornado==4.4.2

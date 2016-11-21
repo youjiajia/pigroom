@@ -12,5 +12,5 @@ class DefaultConfig(object):
     SERVER_HOST = '0.0.0.0'
     SERVER_PORT = 11000
     REDIS_HOST = '127.0.0.1'
-    REDIS_PORT = '6379'
+    REDIS_PORT = 6379
 

@@ -19,6 +19,9 @@ from tornado.websocket import WebSocketHandler
 
 import tornadoredis
 
+import redis
+
+RedisDB = redis.StrictRedis("127.0.0.1", 6379, 0)
 
 class RoomDemo(WebSocketHandler):
     FINISH_MSG = json.dumps(dict(type='state', data='finish'))
@@ -33,18 +36,25 @@ class RoomDemo(WebSocketHandler):
         self.client.listen(self.on_subscribe)
 
     def open(self, room_id, *args, **kws):
-        self.write_message(json.dumps(dict(type='state', data="in")))
         self.channels = "room:" + str(room_id)
         self.room_id = room_id
         self.listen(self.channels)
+        d = dict(type='message', data="another one come in!!!")
+        channel = "room:" + str(self.room_id)
+        RedisDB.publish(channel, json.dumps(d))
 
     def on_message(self, message):
-        self.write_message(json.dumps(dict(type='message', data=message)))
+        d = dict(type='message', data=message)
+        channel = "room:" + str(self.room_id)
+        RedisDB.publish(channel, json.dumps(d))
 
     def on_subscribe(self, msg):
-        self.write_message(msg.body)
-        if "finish" in msg and "state" in msg:
-            self.close(1000)
+        if msg.kind == 'message':
+            self.write_message(msg.body)
+            if "finish" in msg and "state" in msg:
+                self.close(1000)
+        elif msg.kind == 'disconnect':
+            self.close(1011)
 
     def on_close(self):
         if not self.client.subscribed:
