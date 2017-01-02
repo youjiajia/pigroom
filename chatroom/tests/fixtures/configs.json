@@ -1,0 +1,27 @@
+[
+   {
+     "_id": {"$oid" : "55efe889eb43a14de2d0618a"},
+     "title": "Int类型测试",
+     "key": "test_int",
+     "value": "100",
+     "create_at": 1437526206
+   }, {
+     "_id": {"$oid" : "55efe889eb43a14de2d06189"},
+     "title": "Str类型测试",
+     "key": "test_str",
+     "value": "test",
+     "create_at": 1437526206
+   }, {
+     "_id": {"$oid" : "55efe889eb43a14de2d061b8"},
+     "title": "json类型测试",
+     "key": "test_json",
+     "value": "{\"haha\": 1, \"hehe\":2}",
+     "create_at": 1437526206
+   }, {
+     "_id": {"$oid" : "5608b1deeb43a12dbef73f48"},
+     "title": "3.1.2版本审核状态",
+     "key": "app_in_review_3.1.2",
+     "value": "1",
+     "create_at": 1437526206
+   }
+]

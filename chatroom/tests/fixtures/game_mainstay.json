@@ -1,0 +1,17 @@
+[
+  {
+    "_id" : {"$oid" : "5784582cbf98d91f84cf73dc"},
+    "province" : [],
+    "version_code_mix" : 0,
+    "group" : {"$oid" : "576caa6ebf98d9286c9ee07e"},
+    "name" : "首发",
+    "image" : null,
+    "create_at" : 1468291116.828,
+    "channels" : [],
+    "game" : {"$oid" : "55efe64deb43a14b0fcff4e1"},
+    "login" : "all",
+    "version_code_max" : 999,
+    "os" : "android",
+    "order" : 1
+  }
+]

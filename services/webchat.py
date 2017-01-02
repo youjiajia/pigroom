@@ -9,7 +9,6 @@
 
 
 import json
-import os
 import signal
 
 from tornado.gen import engine, Task

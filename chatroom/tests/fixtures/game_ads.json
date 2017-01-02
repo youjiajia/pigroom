@@ -1,0 +1,19 @@
+[
+  {
+    "_id" : {"$oid" : "577f157dbf98d93a24b253c4"},
+    "province" : [],
+    "begin_at" : 1467946320.0,
+    "version_code_mix" : 1,
+    "group" : {"$oid" : "576caa6ebf98d9286c9ee07e"},
+    "image" : "\\images\\trim12.jpg",
+    "create_at" : 1467946365.388,
+    "channels" : [],
+    "action" : "test.ui",
+    "duration" : 3,
+    "login" : "all",
+    "version_code_max" : 9999,
+    "os" : "android",
+    "order" : 1,
+    "expire_at" : 1669760720.0
+  }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "_id" : {"$oid" : "577f074ebf98d93654d600df"},
+        "name" : "测试",
+        "create_at" : 1467942734.907,
+        "action" : "test.url",
+        "order" : 1,
+        "icon" : "\\images\\trim12.jpg"
+    },
+    {
+        "_id" : {"$oid" : "577f075fbf98d93654d600e0"},
+        "name" : "cs",
+        "create_at" : 1467942751.194,
+        "action" : "t.url",
+        "order" : 2,
+        "icon" : "\\images\\trim12.jpg"
+    }
+]

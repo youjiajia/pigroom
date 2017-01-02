@@ -1,0 +1,15 @@
+[
+  {
+    "_id" : { "$oid": "56f1119f421aa983702175d6"},
+    "sort" : "vv",
+    "begin_at" : 1110965580,
+    "max_video" : 2,
+    "name" : "梦幻测试",
+    "max_prize": 1,
+    "max_rank": 100,
+    "create_at" : 1458639263.74831,
+    "end_at" : 1459330380,
+    "status" : "begin",
+    "video_duration" : 0
+  }
+]

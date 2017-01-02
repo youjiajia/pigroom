@@ -1,0 +1,53 @@
+[
+    {
+        "count": 0,
+        "create_at": 1456976116.438364,
+        "event_id": "10001",
+        "finish_at": null,
+        "user_id": "56246d292d7fa20787d683b4",
+        "game_id": "55efe64beb43a14b0fcff4de",
+        "hls_url": "http://live-stream.molizhen.com/10001/stream.m3u8",
+        "images": null,
+        "name": "Shuiyun的直播间",
+        "nickname": "Shuiyun",
+        "offline_at": null,
+        "publish_at": 1456976116.948287,
+        "rtmp_url": "rtmp://live-stream.molizhen.com/10001/stream",
+        "share_url": "http://live-stream.molizhen.com/pages/html/liveshare.html?event_id=10001",
+        "state": "live"
+    },
+    {
+        "count": 0,
+        "create_at": 1456976116.438364,
+        "event_id": "10002",
+        "finish_at": null,
+        "user_id": "55efe64feb43a14b0fcff4e7",
+        "game_id": "55efe64beb43a14b0fcff4de",
+        "hls_url": "http://live-stream.molizhen.com/10001/stream.m3u8",
+        "images": null,
+        "name": "Shuiyun的直播间",
+        "nickname": "Shuiyun",
+        "offline_at": null,
+        "publish_at": 1456976116.948287,
+        "rtmp_url": "rtmp://live-stream.molizhen.com/10001/stream",
+        "share_url": "http://live-stream.molizhen.com/pages/html/liveshare.html?event_id=10001",
+        "state": "live"
+    },
+    {
+        "count": 0,
+        "create_at": 1456976116.438364,
+        "event_id": "10003",
+        "finish_at": null,
+        "user_id": "55efe64feb43a14b0fcff4e6",
+        "game_id": "55efe64beb43a14b0fcff4df",
+        "hls_url": "http://live-stream.molizhen.com/10001/stream.m3u8",
+        "images": null,
+        "name": "Shuiyun的直播间",
+        "nickname": "Shuiyun",
+        "offline_at": null,
+        "publish_at": 1456976116.948287,
+        "rtmp_url": "rtmp://live-stream.molizhen.com/10001/stream",
+        "share_url": "http://live-stream.molizhen.com/pages/html/liveshare.html?event_id=10001",
+        "state": "live"
+    }
+]

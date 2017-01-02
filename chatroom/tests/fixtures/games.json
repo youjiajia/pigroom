@@ -1,0 +1,78 @@
+[
+    {
+        "_id" : {"$oid" : "55efe64beb43a14b0fcff4de"},
+        "name" : "刀塔传奇",
+        "url" : "/games/3ab/3abf344637ef6176c1640b9cc3b2c593.apk",
+        "cover" : "/images/110/1105be6f9461669859f1fd6dd099c316.png",
+        "create_at" : 1441785416.627,
+        "icon" : "/images/967/9672dbf63ed0c478bcb4dc969e8d8d76.png",
+        "tags" : [ {"_id" : {"$oid" : "55f670795961b21e819d5e01"}, "name" : "策略塔防" } ],
+        "package_id" : "sh.lilith.dgame.yidongjidi", 
+        "description" : "诸王争霸，真人实时对战，随时随地尽享PK快感！ 战队领地，装备免费打造，英雄能力由你掌控！ 五军决战，策略烧脑阵容尽情搭配，看谁成为最终王者？ 全新英雄和缤纷活动将同步揭晓，精彩等你体验。", 
+        "version" : 1, 
+        "bid" : "760000006753" 
+    },
+    {
+        "_id" : {"$oid" : "55efe64beb43a14b0fcff4df"},
+        "name" : "猫和老鼠",
+        "url" : "/games/683/683bb4ec9085670d6df8b822b7c45ea7.apk",
+        "cover" : "/images/5d7/5d71ae3b26baeedc74c665086d74448f.jpg",
+        "create_at" : 1441785419.558,
+        "icon" : "/images/bd9/bd9026d6c8a633fc0992da8b66f4b63e.jpeg",
+        "tags" : [ { "_id" : {"$oid" : "55f670795961b21e819d5e00"}, "name" : "动作冒险" } ],
+        "package_id" : "com.netease.tjo.g10086",
+        "description" : "一款基于动漫《猫和老鼠》IP的2D横版跑酷游戏。怀旧幽默的动漫形象，独创的互动跑酷玩法是其核心亮点。在游戏过程中，玩家将重温《猫和老鼠》动漫中，汤姆和杰瑞追逐打闹的经典体验。",
+        "version" : 1,
+        "bid" : "760000055489"
+    },
+    {
+        "_id" : {"$oid" : "55efe64deb43a14b0fcff4e0"},
+        "name" : "斗地主",
+        "url" : "/games/834/834b107a9fdf14ea3d72fb693ae4ae4d.apk",
+        "cover" : "/images/9a4/9a41c8383bc63b5a29a4b1f1487c5368.jpeg",
+        "create_at" : 1441785420.437,
+        "icon" : "/images/a89/a8977915e77ae1f79395d4c9a345645c.jpeg",
+        "tags" : [ { "_id" : {"$oid" : "55f670795961b21e819d5e02"}, "name" : "体育竞速" } ],
+        "package_id" : "com.tuyoo.doudizhu.main",
+        "description" : "当前最好玩的斗地主棋牌游戏，由顶级设计倾力打造，可与海量斗地主玩家联网游戏。游戏画面精美，节奏快，玩法简单，娱乐性强！多多奖励，让您领不停。",
+        "version" : 1,
+        "bid" : "760000012337"
+    },
+    {
+        "_id" : {"$oid" : "55efe64deb43a14b0fcff4e1"},
+        "name" : "火柴人联盟",
+        "url" : "/games/ce5/ce590118c1cf0278258bf346471e6576.apk",
+        "cover" : "/images/031/03103caa70758d6355873e7c3a31dab0.jpeg",
+        "create_at" : 1441785420.537, "icon" : "/images/c76/c76e0a46168672f5bee5f50ab368c03a.jpeg",
+        "tags" : [ { "_id" : {"$oid" : "55f670795961b21e819d5e00"}, "name" : "动作冒险" } ],
+        "package_id" : "com.DBGame.DiabloLOL",
+        "description" : "AppStore付费榜第一的格斗游戏！火柴人联盟吹响集结号角，召唤热门游戏七大经典角色：劫、盖伦、寒冰、流浪、剑圣、小丑、铁拳...任意选择两名火柴人英雄，一起并肩作战，体验前所未有的必杀能量！一触即发，开启专属你的炫技之旅吧！KO！",
+        "version" : 1,
+        "bid" : "760000041207"
+    },
+    {
+        "_id" : {"$oid" : "55efe64feb43a14b0fcff4e2"},
+        "name" : "鳄鱼小顽皮爱洗澡（Where's My Water）",
+        "url" : "/games/06a/06accda4db43789f2a4e60e2435946c2.apk",
+        "cover" : "/images/37d/37de271cc94938d8f4a001749078e9dc.jpeg",
+        "create_at" : 1441785421.063, "icon" : "/images/2b0/2b0b64f0e11b794d585bc794f92f8dc1.jpeg",
+        "tags" : [ { "_id" : {"$oid" : "55f670795961b21e819d5e01"}, "name" : "策略塔防" } ],
+        "package_id" : "com.disney.chukong.WMW",
+        "description" : "这个好玩的新游戏的灵感来自一个都市故事，住在城市下面的鳄鱼小顽皮希望过上人一样的生活，他尤其喜欢干净，引导水流让它愿望成真吧！",
+        "version" : 1,
+        "bid" : "160122045000"
+    },
+    {
+        "_id" : {"$oid" : "55efe64feb43a14b0fcff4e3"},
+        "status" : 1,
+        "name" : "PopStar!消灭星星官方正版",
+        "url" : "/games/d37/d377d48c49197c8d74e812ffcf337cd8.apk",
+        "description" : "一款非常易上手的消除类游戏，游戏的规则简单：只需点击两个或两个以上颜色相同的方块即可消除。没有时间限制，每个阶段都有一个目标，完成即可进入下一关。",
+        "cover" : "/images/cb1/cb1e975ccd119548dedbea05e0d4cb09.jpeg",
+        "create_at" : 1441785423.337,
+        "icon" : "/images/3ad/3ad883bf505e2dcfae978270bd2d4912.jpeg",
+        "package_id" : "com.brianbaek.popstar",
+        "version" : 1,
+        "bid" : "760000001684"
+    }
+]

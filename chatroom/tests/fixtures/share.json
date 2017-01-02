@@ -1,0 +1,7 @@
+[
+{ "_id" : { "$oid" : "574c129c43bd891e14103a29" }, "share_config" : "分享他人视频", "title" : "这是他人的视频" },
+{ "_id" : { "$oid" : "574c129c43bd891e14103a2a" }, "share_config" : "分享自己视频", "title" : "这是我的视频" },
+{ "_id" : { "$oid" : "574c129c43bd891e14103a2b" }, "share_config" : "分享游戏", "title" : "这是我的游戏" },
+{ "_id" : { "$oid" : "574c129c43bd891e14103a2c" }, "share_config" : "分享自己直播间", "title" : "这是我的直播间" },
+{ "_id" : { "$oid" : "574c129c43bd891e14103a2d" }, "share_config" : "分享他人直播间", "title" : "这是别人的直播间" }
+]

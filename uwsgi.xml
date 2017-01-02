@@ -1,0 +1,27 @@
+<uwsgi>
+
+    <pythonpath>/usr/lib/python2.7</pythonpath>
+    <module>wanx</module>
+    <callable>app</callable>
+    <!--
+<socket>/tmp/video_community.sck</socket>
+-->
+    <socket>127.0.0.1:8088</socket>
+    <!--<http-socket>127.0.0.1:51111</http-socket>-->
+    <!--<socket-timeout>60</socket-timeout>-->
+    <env>WXENV=Local</env>
+
+<!--
+    <gevent>1024</gevent>
+    <gevent-monkey-patch/>
+-->
+    <master/>
+    <processes>10</processes>
+    <memory-report/>
+    <buffer-size>65536</buffer-size>
+<!--    <pidfile>/apps2/data/logs/uwgsi/migu_vc.pid</pidfile> -->
+    <daemonize>uwsgi.log</daemonize>
+    <!-- DEBUG ONLY, DO NOT ENABLE THIS WHEN IT IS ONLINE!
+    <catch-exceptions/>
+    -->
+</uwsgi>
