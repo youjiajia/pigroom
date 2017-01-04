@@ -20,7 +20,7 @@ import tornadoredis
 
 import redis
 
-RedisDB = redis.StrictRedis("127.0.0.1", 6379, 0)
+RedisDB = redis.StrictRedis("127.0.0.1", 6379, 1)
 
 class RoomDemo(WebSocketHandler):
     FINISH_MSG = json.dumps(dict(type='state', data='finish'))
