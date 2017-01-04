@@ -1,49 +1,14 @@
 # -*- coding: utf8 -*-
 from datetime import datetime
 from flask import jsonify, request
-from wanx.base.xredis import Redis
-from wanx.base.guard import Guard
 from functools import wraps
 from . import error
 
 import cPickle as cjson
 import functools
-import json
 import random
 import time
 import os
-
-
-def is_mobile_phone(phone):
-    """是否为移动号"""
-
-    # 后台配置移动号段
-    from wanx.models.xconfig import Config
-    default_prefix = ["134", "135", "136", "137", "138", "139",
-                             "147", "150", "151", "152", "157", "158",
-                             "159", "178", "182", "183", "184", "187", "188"]
-    prefixs = Config.fetch('mobile_phone_prefix', default_prefix, json.loads)
-    return phone[:3] in prefixs
-
-
-def is_unicom_phone(phone):
-    """是否为联通号"""
-
-    # 后台配置号段
-    from wanx.models.xconfig import Config
-    default_prefix = ["130", "131", '132', '155', '156', '185', '186', '145', '176']
-    prefixs = Config.fetch('unicom_phone_prefix', default_prefix, json.loads)
-    return phone[:3] in prefixs
-
-
-def is_telecom_phone(phone):
-    """是否为电信号"""
-
-    # 后台配置号段
-    from wanx.models.xconfig import Config
-    default_prefix = ["133", "153", "177", "180", "181", "189"]
-    prefixs = Config.fetch('telecom_phone_prefix', default_prefix, json.loads)
-    return phone[:3] in prefixs
 
 
 def get_choices_desc(choices, value):
