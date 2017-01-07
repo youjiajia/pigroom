@@ -1,5 +1,5 @@
 # -*- coding: utf8 -*-
-from wanx import app
+from chatroot import app
 
 import logging
 import logging.handlers
