@@ -55,3 +55,34 @@ from wanx.base.log import appHandler
 app.logger.setLevel(logging.WARNING)
 app.logger.addHandler(appHandler)
 
+
+if async == 'YES':
+    import wanx.views.async
+else:
+    import wanx.views.comment
+    import wanx.views.game
+    import wanx.views.user
+    import wanx.views.video
+    import wanx.views.home
+    import wanx.views.upload
+    import wanx.views.migu
+    import wanx.views.msg
+    import wanx.views.traffic
+    import wanx.views.xlive
+    import wanx.views.datang
+    import wanx.views.task
+    import wanx.views.credit
+    import wanx.views.gift
+    import wanx.views.store
+
+    from wanx.share.share import share
+    app.register_blueprint(share)
+
+    from wanx.views.activity.comment import comment
+    from wanx.views.activity.video import video
+    from wanx.views.activity.activity import activity
+    from wanx.views.activity.live import live
+    app.register_blueprint(comment)
+    app.register_blueprint(activity)
+    app.register_blueprint(video)
+    app.register_blueprint(live)
