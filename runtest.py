@@ -23,7 +23,6 @@ if __name__ == "__main__":
     # First test without cache
     suite.addTest(ApiTestCase("test_home"))
     suite.addTest(ApiTestCase("test_game"))
-    suite.addTest(ApiTestCase("test_video"))
     suite.addTest(ApiTestCase("test_comment"))
     suite.addTest(ApiTestCase("test_user"))
     suite.addTest(ApiTestCase("test_share"))
