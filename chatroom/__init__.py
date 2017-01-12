@@ -10,6 +10,7 @@ import os
 __all__ = ["app"]
 
 # 通过环境变量来进行配置切换
+
 env = os.environ.get('PIGROOT')
 if env not in ['Local']:
     raise EnvironmentError('The environment variable (PIGROOT) is invalid ')
