@@ -22,7 +22,6 @@ if __name__ == "__main__":
 
     # First test without cache
     suite.addTest(ApiTestCase("test_upload_large"))
-    suite.addTest(ApiTestCase("test_msg"))
     suite.addTest(ApiTestCase("test_activity"))
     # 因为对方有ip限制而无法进行测试
     # suite.addTest(ApiTestCase("test_traffic"))
