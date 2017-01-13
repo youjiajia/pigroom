@@ -34,7 +34,6 @@ if __name__ == "__main__":
     suite.addTest(ApiTestCase("test_task_finished"))
     suite.addTest(ApiTestCase("test_gift"))
     suite.addTest(ApiTestCase("test_activity"))
-    suite.addTest(ApiTestCase("test_store"))
 
     runner = unittest.TextTestRunner(verbosity=2)
     runner.run(suite)
