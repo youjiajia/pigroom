@@ -28,7 +28,6 @@ if __name__ == "__main__":
     # suite.addTest(ApiTestCase("test_traffic"))
 
     # Second test with cache
-    suite.addTest(ApiTestCase("test_game"))
     suite.addTest(ApiTestCase("test_web_game"))
     suite.addTest(ApiTestCase("test_video"))
     suite.addTest(ApiTestCase("test_comment"))
