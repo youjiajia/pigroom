@@ -26,7 +26,6 @@ if __name__ == "__main__":
     suite.addTest(ApiTestCase("test_comment"))
     suite.addTest(ApiTestCase("test_share"))
     suite.addTest(ApiTestCase("test_migu"))
-    suite.addTest(ApiTestCase("test_upload"))
     suite.addTest(ApiTestCase("test_upload_large"))
     suite.addTest(ApiTestCase("test_msg"))
     suite.addTest(ApiTestCase("test_activity"))
