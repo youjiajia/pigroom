@@ -28,7 +28,6 @@ if __name__ == "__main__":
 
     # Second test with cache
     suite.addTest(ApiTestCase("test_comment"))
-    suite.addTest(ApiTestCase("test_user"))
     suite.addTest(ApiTestCase("test_share"))
     suite.addTest(ApiTestCase("test_migu"))
     suite.addTest(ApiTestCase("test_live"))
