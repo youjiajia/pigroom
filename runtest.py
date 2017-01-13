@@ -21,7 +21,6 @@ if __name__ == "__main__":
     suite.addTest(ApiTestCase("test_task"))
 
     # First test without cache
-    suite.addTest(ApiTestCase("test_home"))
     suite.addTest(ApiTestCase("test_game"))
     suite.addTest(ApiTestCase("test_comment"))
     suite.addTest(ApiTestCase("test_share"))
