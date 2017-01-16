@@ -41,6 +41,7 @@ def teardown_request(exception):
     if not MYDB.is_closed():
         MYDB.close()
 
+
 @app.after_request
 def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
