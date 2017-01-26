@@ -15,4 +15,3 @@ ok，没有系统架构，没有分层，没有日志。。。什么都没有，
 1. 需要安装redis
 2. 运行`pip install -r requirements.txt`来安装依赖环境
 3. 运行`python firstdemo.py`
-
