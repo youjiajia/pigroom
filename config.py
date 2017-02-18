@@ -16,3 +16,4 @@ class DefaultConfig(object):
 c\n
 c/n
 c/n
+c/n
