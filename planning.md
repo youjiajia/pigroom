@@ -1,5 +1,8 @@
 #About the plan of devekopment
+
 1、shinx environment deploy   ==>one day
+> * start on February 26,2017
+
 2、database plan	==>oneday
 3、model layer==>three days
 4、views layer==>three days
