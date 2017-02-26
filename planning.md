@@ -1,6 +1,6 @@
 #About the plan of devekopment
 
-1、shinx environment deploy   ==>one day
+1、shinx environment deploy
 > * start on February 26,2017
 > * first,we save the chat record data in redis use List type,and we save 100 cartons of records,this means this list's lenth is 100.
 > * second,we save user and room data in mysql,including User,Friendship,Room,Roommerber
