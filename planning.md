@@ -3,7 +3,9 @@
 1、shinx environment deploy   ==>one day
 > * start on February 26,2017
 > * first,we save the chat record data in redis use List type,and we save 100 cartons of records,this means this list's lenth is 100.
-> * second,
+> * second,we save user and room data in mysql,including User,Friendship,Room,Roommerber
+> * last,we can use django.We use mysql and redis,because we do not save chat records forever,and the data strcture relatively fixed.
+> * over
 
 2、database plan	==>oneday
 3、model layer==>three days
