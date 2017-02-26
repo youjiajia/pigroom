@@ -2,6 +2,8 @@
 
 1、shinx environment deploy   ==>one day
 > * start on February 26,2017
+> * first,we save the chat record data in redis use List type,and we save 100 cartons of records,this means this list's lenth is 100.
+> * second,
 
 2、database plan	==>oneday
 3、model layer==>three days
