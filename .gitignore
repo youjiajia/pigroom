@@ -2,6 +2,6 @@
 .*
 static
 logs
-docs
+html
 migrations
 *.sqlite3
