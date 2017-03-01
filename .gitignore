@@ -4,3 +4,4 @@ static
 logs
 docs
 migrations
+*.sqlite3

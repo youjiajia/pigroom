@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -109,6 +109,8 @@ class DefaultConfig(object):
     EMAIL_USE_SSL = True
     EMAIL_HOST = "smtp.qq.com"
     EMAIL_PORT = 465
+    EMAIL_HOST_USER = "***"
+    EMAIL_HOST_PASSWORD = "****"
 
     # Database
     # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -122,6 +124,11 @@ class DefaultConfig(object):
     }
 
 
-for key in dir(DefaultConfig):
-    if key.isupper():
-        global key
+
+# env conf
+cfg = os.getenv("PIGROOM_CONF", "DefaultConfig")
+local_venv = locals().get(cfg, "")
+if local_venv:
+    for key in dir(local_venv):
+        if key.isupper():
+            locals()[key] = getattr(local_venv, key)
