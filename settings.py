@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'chatroom',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -71,15 +72,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Internationalization
@@ -101,3 +94,29 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# set admin.django will email admins when debug is false and  error arised
+ADMINS = (('Jason', '9822888470@qq.com'),)
+
+
+class DefaultConfig(object):
+    SERVER_HOST = '0.0.0.0'
+    SERVER_PORT = 11000
+    REDIS_HOST = '127.0.0.1'
+    REDIS_PORT = 6379
+    # email
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_SSL = True
+    EMAIL_HOST = "smtp.qq.com"
+    EMAIL_PORT = 465
+
+    # Database
+    # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'ATOMIC_REQUESTS': True,
+        }
+    }
