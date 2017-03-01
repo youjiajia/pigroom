@@ -121,4 +121,7 @@ class DefaultConfig(object):
         }
     }
 
-__dict__["DATABASES"] = DefaultConfig.DATABASES
+
+for key in dir(DefaultConfig):
+    if key.isupper():
+        global key
