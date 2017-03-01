@@ -105,7 +105,7 @@ SERVER_PORT = 9000
 
 class DefaultConfig(object):
     SERVER_HOST = '0.0.0.0'
-    SERVER_PORT = 11000
+    SERVER_PORT = 9000
     REDIS_HOST = '127.0.0.1'
     REDIS_PORT = 6379
     # email
