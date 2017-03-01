@@ -6,3 +6,4 @@ singledispatch==3.4.0.3
 six==1.10.0
 tornado==4.4.2
 tornado-redis==2.4.18
+django==1.8.8
