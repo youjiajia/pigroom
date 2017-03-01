@@ -120,3 +120,5 @@ class DefaultConfig(object):
             'ATOMIC_REQUESTS': True,
         }
     }
+
+__dict__["DATABASES"] = DefaultConfig.DATABASES
