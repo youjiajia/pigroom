@@ -8,8 +8,8 @@ if __name__ == "__main__":
     from django.core.management import execute_from_command_line
     if sys.argv[1] == "runserver" and len(sys.argv) == 2:
         import settings
-        host = "{0}:{1}".format(settings.SERVER_HOST,
-                                settings.SERVER_HOST)
-        sys.argv.append(settings.SERVER_HOST)
+        server = "{0}:{1}".format(settings.SERVER_HOST,
+                                  settings.SERVER_HOST)
+        sys.argv.append(server)
     print sys.argv
     execute_from_command_line(sys.argv)
