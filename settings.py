@@ -98,6 +98,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # set admin.django will email admins when debug is false and  error arised
 ADMINS = (('Jason', '9822888470@qq.com'),)
 
+# default server
+SERVER_HOST = '127.0.0.1'
+SERVER_PORT = 9000
+
 
 class DefaultConfig(object):
     SERVER_HOST = '0.0.0.0'
