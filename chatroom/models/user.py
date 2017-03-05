@@ -17,5 +17,5 @@ class UserProfile(models.Model):
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = User
-        fields = ('url', 'username', 'email', 'groups')
+        model = UserProfile
+        fields = ('nickname', 'friends', 'phone', 'user')
