@@ -17,4 +17,5 @@ from chatroom.views.views import sendmail
 
 urlpatterns = [
     url(r'^test/', sendmail),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
