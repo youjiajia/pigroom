@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from django
+from django_extensions.db.models import TimeStampedModel
 
 
-class UserProfile(models.Model):
+class UserProfile(TimeStampedModel):
     user = models.OneToOneField(User)
     friends = models.ManyToManyField(User)
     nickname = models.CharField(max_length=200, default='', blank=True)
@@ -15,7 +15,8 @@ class UserProfile(models.Model):
 
     class Meta:
         db_table = "auth_userprofile"
-        app_label = "chatroom"created
+        app_label = "chatroom"
+        ordering = ['-created']
 
     def __unicode__(self):
         return self.nickname
