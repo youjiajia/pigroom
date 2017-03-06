@@ -5,7 +5,7 @@ from django_extensions.db.models import TimeStampedModel
 
 
 class UserProfile(TimeStampedModel):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, unique=True, db_index=True, related_name='profile')
     friends = models.ManyToManyField(User)
     nickname = models.CharField(max_length=200, default='', blank=True)
     phone = models.CharField(max_length=200, default='', blank=True)
@@ -14,7 +14,7 @@ class UserProfile(TimeStampedModel):
     gender = models.IntegerField(default=0, blank=True)
 
     class Meta:
-        db_table = "auth_userprofile"
+        db_table = "userprofile"
         app_label = "chatroom"
         ordering = ['-created']
 
@@ -25,4 +25,4 @@ class UserProfile(TimeStampedModel):
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UserProfile
-        fields = ('nickname', 'friends', 'phone', 'user')
+        fields = ('nickname', 'friendcount', 'phone', 'gender')
