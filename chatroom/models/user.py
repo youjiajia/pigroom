@@ -6,7 +6,7 @@ from django_extensions.db.models import TimeStampedModel
 
 class UserProfile(TimeStampedModel):
     user = models.OneToOneField(User, unique=True, db_index=True, related_name='profile')
-    friends = models.ManyToManyField(User)
+    friends = models.ManyToManyField('self', through='Usership')
     nickname = models.CharField(max_length=200, default='', blank=True)
     phone = models.CharField(max_length=200, default='', blank=True)
     cover = models.CharField(max_length=200, default='', blank=True)
@@ -22,7 +22,13 @@ class UserProfile(TimeStampedModel):
         return self.nickname
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class Usership(TimeStampedModel):
+    Applyer = models.ForeignKey(UserProfile)
+    Feedback = models.ForeignKey(UserProfile)
+    note = models.CharField(max_length=200, blank=True, null=True)
+
+
+class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UserProfile
         fields = ('nickname', 'friendcount', 'phone', 'gender')
