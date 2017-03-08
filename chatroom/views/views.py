@@ -15,6 +15,7 @@ from chatroom.models.user import UserProfileSerializer, UserProfile
 
 class UserViewSet(viewsets.ModelViewSet):
     """
+
     允许查看和编辑user 的 API endpoint
     """
     queryset = UserProfile.objects.all()
