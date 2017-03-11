@@ -19,6 +19,7 @@ from chatroom.views.views import sendmail, UserViewSet
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 
+
 urlpatterns = [
     url(r'^test/', sendmail),
     url(r'^', include(router.urls)),
