@@ -121,3 +121,6 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 修改SnippetDetail视图
 permission_classes = (permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly,)	
 
+
+4、分页
+setting中设置REST_FRAMEWORK = {'PAGE_SIZE':10}
