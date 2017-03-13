@@ -161,6 +161,18 @@ urlpatterns = fromat_suffix_patterns([
 	url(r'^snippets/(?P<pk>[0-9]+)/$', snippet_detail, name='snippet-detail'),
 	...
 ])
-
-
+5.2使用Routers
+from django.conf.urls import url,include
+from snippets import views
+from rest_framework.routers import DefaultRouter
+router = DefaultRouter()
+router.register(r'snippets',views.SnippetViewSet)
+router.register(r'users',views.UserViewSet)
+urlpatterns = [
+	url(r'^', include(router.urls)),
+	url(r'^api-auth/', include('rest_framework.urls', namepase='rest_framework'))
+]
+权衡views和viewsets
+viewsets是一种很有用的抽象，它帮助我们确保url符合惯例，减少代码编写量，使你专注于api交互和设计而不是url配置上
+不过viewsets相比于显示构建views，有些隐晦。
 可以优化的:使用redis进行分页，使用cookie存储ut来优化登陆
