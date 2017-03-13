@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'wsgi.application'
 
 REST_FRAMEWORK = {
     # 'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
-    'PAGINATE_BY': 10,
+    # 'PAGINATE_BY': 10,
     'PAGE_SIZE': 10,
     'DATETIME_FORMAT': ("%Y-%m-%d %H:%M:%S")
 }
