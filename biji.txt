@@ -142,7 +142,8 @@ class SnippetViewSet(viewsets.ModelViewSet):
 		return Response(snippet.highlighted)
 	def perform_create(self,serializer):
 		serializer.save(owner=self.request.user)
-
+@detail_route装饰的用户自定义动作默认相应get请求，如果需要响应post操作需要制定methods参数
+默认情况下，自定义动作对应的url取决于他们的函数名，也可以通过给的装饰器传递url_path参数来进行修改。
 
 
 可以优化的:使用redis进行分页，使用cookie存储ut来优化登陆
