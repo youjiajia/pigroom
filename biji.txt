@@ -144,6 +144,23 @@ class SnippetViewSet(viewsets.ModelViewSet):
 		serializer.save(owner=self.request.user)
 @detail_route装饰的用户自定义动作默认相应get请求，如果需要响应post操作需要制定methods参数
 默认情况下，自定义动作对应的url取决于他们的函数名，也可以通过给的装饰器传递url_path参数来进行修改。
+5.1显式的绑定url和viewsets
+from snippets.views import SnippetViewSet, UserViewSet, api_root
+from rest_framework import renderers
+
+snippet_list = SnippetViewSet.as_view({
+	'get':'list',
+	'post':'create'
+})
+snippet_detail = SnippetViewSet.as_view({
+	'get':'retrieve'..
+})
+...
+urlpatterns = fromat_suffix_patterns([
+	url(r'^snippets/$', snippet_list, name='snippet-list'),
+	url(r'^snippets/(?P<pk>[0-9]+)/$', snippet_detail, name='snippet-detail'),
+	...
+])
 
 
 可以优化的:使用redis进行分页，使用cookie存储ut来优化登陆
