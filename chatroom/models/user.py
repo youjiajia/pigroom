@@ -1,7 +1,9 @@
+# -*- coding: utf8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from django_extensions.db.models import TimeStampedModel
+from chatroom.base import const
 
 
 class UserProfile(TimeStampedModel):
@@ -23,9 +25,25 @@ class UserProfile(TimeStampedModel):
 
 
 class Usership(TimeStampedModel):
-    Applyer = models.ForeignKey(UserProfile)
-    Feedback = models.ForeignKey(User)
+    UserShipStatus = (
+        (const.WAIT, '等待对方回应'),
+        (const.AGREE, '成功'),
+        (const.REFUSE, '拒绝'),
+        (const.BLACK, '拉黑'),
+        (const.DELETE, '删除好友')
+    )
+    Applyer = models.ForeignKey(UserProfile, related_name='')
+    Feedback = models.ForeignKey(User, related_name='')
     note = models.CharField(max_length=200, blank=True, null=True)
+    status = models.IntegerField(choices=UserShipStatus)
+
+    class Meta:
+        db_table = "usership"
+        app_label = "chatroom"
+        ordering = ['-created']
+
+    def __unicode__(self):
+        return self.note
 
 
 class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
