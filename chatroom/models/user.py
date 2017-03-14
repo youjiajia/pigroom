@@ -1,8 +1,8 @@
 # -*- coding: utf8 -*-
 from django.db import models
 from django.contrib.auth.models import User
-from rest_framework import serializers
 from django_extensions.db.models import TimeStampedModel
+
 from chatroom.base import const
 
 
@@ -44,9 +44,3 @@ class Usership(TimeStampedModel):
 
     def __unicode__(self):
         return self.note
-
-
-class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = UserProfile
-        fields = ('nickname', 'friendcount', 'phone', 'gender')
