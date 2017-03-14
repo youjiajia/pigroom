@@ -176,3 +176,10 @@ urlpatterns = [
 viewsets是一种很有用的抽象，它帮助我们确保url符合惯例，减少代码编写量，使你专注于api交互和设计而不是url配置上
 不过viewsets相比于显示构建views，有些隐晦。
 可以优化的:使用redis进行分页，使用cookie存储ut来优化登陆
+
+需要实现的是：
+        用户注册，  UserRegisterSerializer
+        登陆，   OwnerProfileSerializer
+        添加好友
+        删除好友
+        拉黑好友

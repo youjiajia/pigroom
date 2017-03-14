@@ -32,7 +32,7 @@ class Usership(TimeStampedModel):
         (const.BLACK, '拉黑'),
         (const.DELETE, '删除好友')
     )
-    Applyer = models.ForeignKey(UserProfile, related_name='userapplys')
+    Owner = models.ForeignKey(UserProfile, related_name='userOwner')
     Feedback = models.ForeignKey(User, related_name='userfeedbacks')
     note = models.CharField(max_length=200, blank=True, null=True)
     status = models.IntegerField(choices=UserShipStatus)
