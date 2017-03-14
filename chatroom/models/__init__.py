@@ -1,1 +1,1 @@
-from .user import UserProfile
+from .user import UserProfile, Usership

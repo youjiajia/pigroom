@@ -10,7 +10,7 @@ def sendmail(request):
 
 
 from rest_framework import viewsets
-from chatroom.models.user import UserProfileSerializer, UserProfile
+from chatroom import UserProfileSerializer, UserProfile
 
 
 class UserViewSet(viewsets.ModelViewSet):
