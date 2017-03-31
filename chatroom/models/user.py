@@ -14,6 +14,7 @@ class UserProfile(TimeStampedModel):
     cover = models.CharField(max_length=200, default='', blank=True)
     friendcount = models.IntegerField(default=0, blank=True)
     gender = models.IntegerField(default=0, blank=True)
+    status = models.IntegerField(default=0, blank=True)
 
     class Meta:
         db_table = "userprofile"

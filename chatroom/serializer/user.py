@@ -9,7 +9,7 @@ class OwnerProfileSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = UserProfile
-        fields = ('nickname', 'friends', 'friendcount', 'phone', 'gender')
+        fields = ('nickname', 'friends', 'friendcount', 'phone', 'gender', 'status')
 
 
 class UserFriendSerializer(serializers.HyperlinkedModelSerializer):
@@ -21,3 +21,9 @@ class UserFriendSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Usership
         fields = ('id', 'note', 'gender', 'cover', 'nickname')
+
+
+class OwnerChangeProfileSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = ('nickname', 'phone', 'cover', 'gender')

@@ -1,6 +1,8 @@
 # coding: utf-8
 from django.http import HttpResponse
 from settings import STATIC_ROOT
+from rest_framework import permissions
+from rest_framework.request import Request
 
 # Create your views here.
 def sendmail(request):
@@ -11,7 +13,7 @@ def sendmail(request):
 
 from rest_framework import viewsets
 from chatroom.models.user import UserProfile
-from chatroom.serializer.user import UserFriendSerializer
+from chatroom.serializer.user import OwnerProfileSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -19,5 +21,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
     允许查看和编辑user 的 API endpoint
     """
-    queryset = UserProfile.objects.all()
-    serializer_class = UserFriendSerializer
+    queryset = Request.user.profile
+    serializer_class = OwnerProfileSerializer
+    permission_classes = (permissions.IsAuthenticated,)
