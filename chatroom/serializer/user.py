@@ -5,27 +5,15 @@ from chatroom.models.user import UserProfile, User, Usership
 
 
 class OwnerProfileSerializer(serializers.HyperlinkedModelSerializer):
-    friends = UserProfileSerializer(many=True, user='self.owner')
-
-    def __init__(self, user, **kwargs):
-        self.owner = user
-        super(OwnerProfileSerializer, self).__init__(**kwargs)
+    friends = UserFriendSerializer(many=True)
 
     class Meta:
         model = UserProfile
-        fields = ('nickname', 'friendcount', 'phone', 'gender')
+        fields = ('nickname', 'friends', 'friendcount', 'phone', 'gender')
 
 
-class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
-    notename = serializers.SerializerMethodField()
-
-    def get_notename(self, user):
-        return ""
-
-    def __init__(self, user, **kwargs):
-        self.owner = user
-        super(UserProfileSerializer, self).__init__(**kwargs)
+class UserFriendSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
-        model = UserProfile
-        fields = ('id', 'nickname', 'gender', 'cover', 'notename')
+        model = Usership
+        fields = ('Feedback__id', 'note', 'Feedback__gender', 'Feedback__cover', 'Feedback__nickname')
