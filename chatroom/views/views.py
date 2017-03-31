@@ -36,6 +36,7 @@ class UserViewSet(mixins.CreateModelMixin,
         return self.serializer_class
 
     def get(self, request, *args, **kwargs):
+        print request.user
         userPro = request.user.profile
         serializer = self.get_serializer(userPro)
         return Response(serializer.data)

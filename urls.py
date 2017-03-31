@@ -22,6 +22,7 @@ router.register(r'users', UserViewSet)
 
 urlpatterns = [
     url(r'^test/', sendmail),
-    url(r'^', include(router.urls)),
+    # url(r'^', include(router.urls)),
+    url(r'^user', UserViewSet.as_view(), name='UserViewSet'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
