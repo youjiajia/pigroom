@@ -1,5 +1,6 @@
 # -*- coding:utf8 -*-
 from rest_framework import permissions
+from rest_framework.compat import is_authenticated
 
 
 class IsOwnerOrCreateOnly(permissions.BasePermission):
@@ -9,5 +10,7 @@ class IsOwnerOrCreateOnly(permissions.BasePermission):
 
     def has_object_permission(self, request, view, obj):
         if request.method in ('CREATE',):
+            return True
+        if request.user and is_authenticated(request.user):
             return True
         return False
