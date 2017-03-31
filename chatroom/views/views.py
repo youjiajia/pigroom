@@ -1,5 +1,6 @@
 # coding: utf-8
 from django.http import HttpResponse
+from rest_framework.response import Response
 from rest_framework import permissions
 from rest_framework.request import Request
 
@@ -14,16 +15,26 @@ def sendmail(request):
     return HttpResponse(STATIC_ROOT)
 
 
-from rest_framework import viewsets
+from rest_framework import generics, mixins
 from chatroom.models.user import UserProfile
-from chatroom.serializer.user import OwnerProfileSerializer
+from chatroom.serializer.user import OwnerProfileSerializer, OwnerChangeProfileSerializer
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(mixins.CreateModelMixin,
+                  mixins.UpdateModelMixin, generics.GenericAPIView):
     """
 
     允许查看和编辑user 的 API endpoint
     """
-    queryset = Request.user.profile
-    serializer_class = OwnerProfileSerializer
+    serializer_class = OwnerChangeProfileSerializer
     permission_classes = (IsOwnerOrCreateOnly,)
+
+    def get_serializer_class(self, *args, **kwargs):
+        if self.request.method in ('CREATE',):
+            return OwnerProfileSerializer
+        return self.serializer_class
+
+    def get(self, request, *args, **kwargs):
+        userPro = Request.user.profile
+        serializer = self.get_serializer(userPro)
+        return Response(serializer.data)
