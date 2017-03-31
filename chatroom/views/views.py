@@ -1,6 +1,7 @@
 # coding: utf-8
 from django.http import HttpResponse
 from rest_framework.response import Response
+from rest_framework.compat import is_authenticated
 
 from settings import STATIC_ROOT
 from chatroom.permissions import IsOwnerOrCreateOnly
@@ -32,9 +33,11 @@ class UserViewSet(mixins.CreateModelMixin,
         if self.request.method in ('GET',):
             return OwnerProfileSerializer
         return self.serializer_class
-    #
-    # def get(self, request, *args, **kwargs):
-    #     print type(request.user)
-    #     userPro = request.user.profile
-    #     serializer = self.get_serializer(userPro)
-    #     return Response(serializer.data)
+
+    def get(self, request, *args, **kwargs):
+        if request.user and is_authenticated(request.user):
+            print request.user.profile
+            userPro = request.user.profile
+            serializer = self.get_serializer(userPro)
+            return Response(serializer.data)
+        return Response("")
