@@ -13,7 +13,11 @@ class OwnerProfileSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserFriendSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.ReadOnlyField(source='Feedback.id')
+    gender = serializers.ReadOnlyField(source='Feedback.gender')
+    cover = serializers.ReadOnlyField(source='Feedback.cover')
+    nickname = serializers.ReadOnlyField(source='Feedback.nickname')
 
     class Meta:
         model = Usership
-        fields = ('Feedback__id', 'note', 'Feedback__gender', 'Feedback__cover', 'Feedback__nickname')
+        fields = ('id', 'note', 'gender', 'cover', 'nickname')
