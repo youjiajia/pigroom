@@ -4,14 +4,6 @@ from rest_framework import serializers
 from chatroom.models.user import UserProfile, User, Usership
 
 
-class OwnerProfileSerializer(serializers.HyperlinkedModelSerializer):
-    friends = UserFriendSerializer(many=True)
-
-    class Meta:
-        model = UserProfile
-        fields = ('nickname', 'friends', 'friendcount', 'phone', 'gender', 'status')
-
-
 class UserFriendSerializer(serializers.HyperlinkedModelSerializer):
     id = serializers.ReadOnlyField(source='Feedback.id')
     gender = serializers.ReadOnlyField(source='Feedback.gender')
@@ -21,6 +13,14 @@ class UserFriendSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Usership
         fields = ('id', 'note', 'gender', 'cover', 'nickname')
+
+
+class OwnerProfileSerializer(serializers.HyperlinkedModelSerializer):
+    friends = UserFriendSerializer(many=True)
+
+    class Meta:
+        model = UserProfile
+        fields = ('nickname', 'friends', 'friendcount', 'phone', 'gender', 'status')
 
 
 class OwnerChangeProfileSerializer(serializers.HyperlinkedModelSerializer):

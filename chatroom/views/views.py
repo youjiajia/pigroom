@@ -26,6 +26,7 @@ class UserViewSet(mixins.CreateModelMixin,
 
     允许查看和编辑user 的 API endpoint
     """
+    queryset = UserProfile.objects.all()
     serializer_class = OwnerChangeProfileSerializer
     permission_classes = (IsOwnerOrCreateOnly,)
 
@@ -35,6 +36,6 @@ class UserViewSet(mixins.CreateModelMixin,
         return self.serializer_class
 
     def get(self, request, *args, **kwargs):
-        userPro = Request.user.profile
+        userPro = request.user.profile
         serializer = self.get_serializer(userPro)
         return Response(serializer.data)
