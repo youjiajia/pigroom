@@ -26,4 +26,21 @@ class OwnerProfileSerializer(serializers.HyperlinkedModelSerializer):
 class OwnerChangeProfileSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UserProfile
-        fields = ('nickname', 'phone', 'cover', 'gender')
+        fields = ('user', 'nickname', 'phone', 'cover', 'gender')
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('username', 'password', 'email')
+
+    def create(self, validated_data):
+        serializers.raise_errors_on_nested_writes('create', self, validated_data)
+        print validated_data
+        ModelClass = self.Meta.model
+        object = ModelClass()
+        object.username = validated_data['username']
+        object.set_password(validated_data['password'])
+        object.email = validated_data['email']
+        object.save()
+        return object.id

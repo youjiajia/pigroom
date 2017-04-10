@@ -14,9 +14,9 @@ def sendmail(request):
     return HttpResponse(STATIC_ROOT)
 
 
-from rest_framework import generics, mixins
+from rest_framework import generics, mixins, authentication
 from chatroom.models.user import UserProfile
-from chatroom.serializer.user import OwnerProfileSerializer, OwnerChangeProfileSerializer
+from chatroom.serializer.user import OwnerProfileSerializer, OwnerChangeProfileSerializer, UserSerializer
 
 
 class UserViewSet(mixins.CreateModelMixin,
@@ -41,3 +41,13 @@ class UserViewSet(mixins.CreateModelMixin,
             serializer = self.get_serializer(userPro)
             return Response(serializer.data)
         return Response("")
+
+    def post(self, request, *args, **kwargs):
+        kwargs['context'] = self.get_serializer_context()
+        serializer = UserSerializer(data=request.data, *args, **kwargs)
+        serializer.is_valid(raise_exception=True)
+        userid = serializer.save()
+        return self.create(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
