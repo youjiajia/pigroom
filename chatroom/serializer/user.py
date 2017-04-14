@@ -36,7 +36,6 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         serializers.raise_errors_on_nested_writes('create', self, validated_data)
-        print validated_data
         ModelClass = self.Meta.model
         object = ModelClass()
         object.username = validated_data['username']
