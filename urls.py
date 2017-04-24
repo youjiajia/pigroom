@@ -14,14 +14,13 @@ Including another URLconf
 """
 from django.conf.urls import patterns, url, include
 from rest_framework import routers
-from chatroom.views.views import sendmail, UserViewSet
+from chatroom.views.views import UserViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 
 
 urlpatterns = [
-    url(r'^test/', sendmail),
     # url(r'^', include(router.urls)),
     url(r'^user', UserViewSet.as_view(), name='UserViewSet'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),

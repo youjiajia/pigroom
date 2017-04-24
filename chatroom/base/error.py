@@ -1,7 +1,8 @@
 # -*- coding: utf8 -*-
+from rest_framework.exceptions import APIException
 
 
-class ApiError(object):
+class ApiError(APIException):
 
     def __init__(self, name, code, msg):
         self.name = name

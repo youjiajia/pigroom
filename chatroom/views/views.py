@@ -1,23 +1,15 @@
 # coding: utf-8
-from django.http import HttpResponse
-from rest_framework.response import Response
 from rest_framework.compat import is_authenticated
-
-from settings import STATIC_ROOT
 from chatroom.permissions import IsOwnerOrCreateOnly
-
-
-# Create your views here.
-def sendmail(request):
-    from django.core.mail import send_mail
-    send_mail('Subject here', 'Here is the message.', 'pigroom <1990815733@qq.com>', ['hi_youjiajia@163.com'])
-    return HttpResponse(STATIC_ROOT)
-
-
 from rest_framework import generics, mixins, authentication
 from rest_framework.exceptions import ValidationError
 from chatroom.models.user import UserProfile, User
+from chatroom.base import const
 from chatroom.serializer.user import OwnerProfileSerializer, OwnerChangeProfileSerializer, UserSerializer
+from django.core.mail import EmailMultiAlternatives
+from rest_framework.response import Response
+from django.template import Context, loader
+import settings as ST
 
 
 class UserViewSet(mixins.CreateModelMixin,
@@ -55,7 +47,28 @@ class UserViewSet(mixins.CreateModelMixin,
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
         request.data.appendlist('user', user.id)
-        return self.create(request, *args, **kwargs)
+        data = self.create(request, *args, **kwargs)
+
+        # send verify email
+        try:
+            verify_url = "www.baidu.com"
+            email_template_name = 'verify_email.html'
+            t = loader.get_template(email_template_name)
+            context = {
+                'email': email,
+                'verify_url': verify_url,
+            }
+            html_content = t.render(Context(context))
+            subject = const.VERIFY
+            msg = EmailMultiAlternatives(subject, html_content, ST.EMAIL_FROM, [email])
+            msg.attach_alternative(html_content, "text/html")
+
+            #TODO 有效期
+
+            msg.send()
+        except:
+            raise ValidationError({"email": ["send email failure"]})
+        return data
 
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)

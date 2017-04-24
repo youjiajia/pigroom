@@ -7,6 +7,12 @@ from chatroom.base import const
 
 
 class UserProfile(TimeStampedModel):
+    UserStatus = (
+        (const.WAITVERIFY, '待认证邮箱'),
+        (const.REGISTERSUCCESS, '注册成功'),
+        (const.BEBENED, '被封号'),
+        (const.OVERDUE, '账号已经过期')
+    )
     user = models.OneToOneField(User, unique=True, db_index=True, related_name='profile')
     friends = models.ManyToManyField(User, through='Usership')
     nickname = models.CharField(max_length=200, default='', blank=True)
@@ -14,7 +20,7 @@ class UserProfile(TimeStampedModel):
     cover = models.CharField(max_length=200, default='', blank=True)
     friendcount = models.IntegerField(default=0, blank=True)
     gender = models.IntegerField(default=0, blank=True)
-    status = models.IntegerField(default=0, blank=True)
+    status = models.IntegerField(choices=UserStatus, default=0, blank=True)
 
     class Meta:
         db_table = "userprofile"

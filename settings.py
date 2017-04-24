@@ -1,3 +1,4 @@
+# -*- coding:utf8 -*-
 """
 Django settings for pigroom project.
 
@@ -127,6 +128,7 @@ class DefaultConfig(object):
     EMAIL_PORT = 465
     # Database
     # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+    EMAIL_FROM = 'pigroom聊天室官方邮箱 <1990815733@qq.com>'
 
     DATABASES = {
         'default': {
