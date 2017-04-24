@@ -15,7 +15,8 @@ def sendmail(request):
 
 
 from rest_framework import generics, mixins, authentication
-from chatroom.models.user import UserProfile
+from rest_framework.exceptions import ValidationError
+from chatroom.models.user import UserProfile, User
 from chatroom.serializer.user import OwnerProfileSerializer, OwnerChangeProfileSerializer, UserSerializer
 
 
@@ -45,8 +46,15 @@ class UserViewSet(mixins.CreateModelMixin,
     def post(self, request, *args, **kwargs):
         kwargs['context'] = self.get_serializer_context()
         serializer = UserSerializer(data=request.data, *args, **kwargs)
+        if 'email' not in request.data:
+            raise ValidationError({"email": ["This field is required."]})
+        email = request.data['email']
+        u = User.objects.filter(email=email).count()
+        if u:
+            raise ValidationError({"email": ["A user with that email already exists."]})
         serializer.is_valid(raise_exception=True)
-        userid = serializer.save()
+        user = serializer.save()
+        request.data.appendlist('user', user.id)
         return self.create(request, *args, **kwargs)
 
     def put(self, request, *args, **kwargs):

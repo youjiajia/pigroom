@@ -2,6 +2,7 @@
 from rest_framework import serializers
 
 from chatroom.models.user import UserProfile, User, Usership
+from django.contrib.auth.hashers import make_password
 
 
 class UserFriendSerializer(serializers.HyperlinkedModelSerializer):
@@ -23,7 +24,7 @@ class OwnerProfileSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('nickname', 'friends', 'friendcount', 'phone', 'gender', 'status')
 
 
-class OwnerChangeProfileSerializer(serializers.HyperlinkedModelSerializer):
+class OwnerChangeProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
         fields = ('user', 'nickname', 'phone', 'cover', 'gender')
@@ -37,9 +38,9 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         serializers.raise_errors_on_nested_writes('create', self, validated_data)
         ModelClass = self.Meta.model
-        object = ModelClass()
-        object.username = validated_data['username']
-        object.set_password(validated_data['password'])
-        object.email = validated_data['email']
-        object.save()
-        return object.id
+        object = ModelClass.objects.create(
+            username=validated_data['username'],
+            password=make_password(validated_data['password']),
+            email=validated_data.get('email', "")
+        )
+        return object
