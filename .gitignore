@@ -5,3 +5,4 @@ logs
 html
 migrations
 *.sqlite3
+settings.py
