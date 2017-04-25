@@ -1,5 +1,5 @@
 # -*- coding: utf8 -*-
-from chatroot import app
+import settings
 
 import logging
 import logging.handlers
@@ -7,7 +7,7 @@ import os
 
 
 # 日志记录
-log_root = os.path.abspath(os.path.join(app.root_path, '../logs'))
+log_root = os.path.abspath(os.path.join(settings.BASE_DIR, '../logs'))
 if not os.path.exists(log_root):
     os.makedirs(log_root)
 

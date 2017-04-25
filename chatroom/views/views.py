@@ -1,15 +1,19 @@
 # coding: utf-8
 from rest_framework.compat import is_authenticated
 from chatroom.permissions import IsOwnerOrCreateOnly
-from rest_framework import generics, mixins, authentication
+from rest_framework import generics, mixins, authentication, viewsets
 from rest_framework.exceptions import ValidationError
 from chatroom.models.user import UserProfile, User
+from chatroom.models.email import VerifyEmail
 from chatroom.base import const
+from chatroom.base import util
 from chatroom.serializer.user import OwnerProfileSerializer, OwnerChangeProfileSerializer, UserSerializer
 from django.core.mail import EmailMultiAlternatives
 from rest_framework.response import Response
 from django.template import Context, loader
+from urlparse import urljoin
 import settings as ST
+from urllib import quote
 
 
 class UserViewSet(mixins.CreateModelMixin,
@@ -51,7 +55,12 @@ class UserViewSet(mixins.CreateModelMixin,
 
         # send verify email
         try:
-            verify_url = "www.baidu.com"
+            code = VerifyEmail(user.id)
+            verify_url = urljoin(ST.WEB_URL, const.INTERFACE.format(
+                name=util.get_md5(email),
+                code=code,
+                callback=quote(const.CALLBACK)
+            ))
             email_template_name = 'verify_email.html'
             t = loader.get_template(email_template_name)
             context = {
@@ -62,8 +71,6 @@ class UserViewSet(mixins.CreateModelMixin,
             subject = const.VERIFY
             msg = EmailMultiAlternatives(subject, html_content, ST.EMAIL_FROM, [email])
             msg.attach_alternative(html_content, "text/html")
-
-            #TODO 有效期
 
             msg.send()
         except:

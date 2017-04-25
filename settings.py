@@ -119,8 +119,9 @@ SERVER_PORT = 9000
 class DefaultConfig(object):
     SERVER_HOST = '0.0.0.0'
     SERVER_PORT = 9000
-    REDIS_HOST = '127.0.0.1'
+    REDIS_HOST = 'localhost'
     REDIS_PORT = 6379
+    REDIS_DB = 0
     # email
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_SSL = True
@@ -128,7 +129,7 @@ class DefaultConfig(object):
     EMAIL_PORT = 465
     # Database
     # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-    EMAIL_FROM = 'pigroom聊天室官方邮箱 <1990815733@qq.com>'
+    EMAIL_FROM = 'pigroom吹牛逼不打草稿专用邮箱 <1990815733@qq.com>'
 
     DATABASES = {
         'default': {
@@ -137,6 +138,8 @@ class DefaultConfig(object):
             'ATOMIC_REQUESTS': True,
         }
     }
+
+    WEB_URL = "http://chatroom.pyjason.com"
 
 
 

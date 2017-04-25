@@ -9,6 +9,8 @@ DELETE = 4
 
 # 发送邮件主题
 VERIFY = '请激活您的pigroom超级聊天室账号'
+INTERFACE = 'account/accountActivation?loginName={name}&code={code}&&callback={callback}'
+CALLBACK = 'https://www.baidu.com'
 
 # 用户状态
 WAITVERIFY = 0

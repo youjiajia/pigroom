@@ -1,23 +1,15 @@
 # -*- coding: utf8 -*-
-from wanx import app
+import settings
 
 import redis
 
 
-__all__ = ["Redis", "MRedis"]
+__all__ = ["Redis"]
 
 # api主redis
 pool = redis.ConnectionPool(
-    host=app.config.get('REDIS_HOST'),
-    port=app.config.get('REDIS_PORT'),
-    db=0
+    host=settings.REDIS_HOST,
+    port=settings.REDIS_PORT,
+    db=settings.REDIS_DB
 )
 Redis = redis.StrictRedis(connection_pool=pool)
-
-# 消息缓存
-mpool = redis.ConnectionPool(
-    host=app.config.get('MREDIS_HOST'),
-    port=app.config.get('MREDIS_PORT'),
-    db=0
-)
-MRedis = redis.StrictRedis(connection_pool=mpool)
