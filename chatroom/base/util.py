@@ -9,7 +9,7 @@ import functools
 import random
 import time
 import hashlib
-import os
+from .xredis import Redis
 
 
 def get_choices_desc(choices, value):

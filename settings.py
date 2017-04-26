@@ -129,6 +129,8 @@ class DefaultConfig(object):
     EMAIL_PORT = 465
     # Database
     # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+    EMAIL_HOST_USER = "1990815733@qq.com"
+    EMAIL_HOST_PASSWORD = "hxqkkgdmukpjeejf"
     EMAIL_FROM = 'pigroom吹牛逼不打草稿专用邮箱 <1990815733@qq.com>'
 
     DATABASES = {

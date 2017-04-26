@@ -3,9 +3,10 @@ from rest_framework import serializers
 
 from chatroom.models.user import UserProfile, User, Usership
 from django.contrib.auth.hashers import make_password
+from chatroom.serializer import HyperlinkedModelSerializer, ModelSerializer
 
 
-class UserFriendSerializer(serializers.HyperlinkedModelSerializer):
+class UserFriendSerializer(HyperlinkedModelSerializer):
     id = serializers.ReadOnlyField(source='Feedback.id')
     gender = serializers.ReadOnlyField(source='Feedback.gender')
     cover = serializers.ReadOnlyField(source='Feedback.cover')
@@ -16,7 +17,7 @@ class UserFriendSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'note', 'gender', 'cover', 'nickname')
 
 
-class OwnerProfileSerializer(serializers.HyperlinkedModelSerializer):
+class OwnerProfileSerializer(HyperlinkedModelSerializer):
     friends = UserFriendSerializer(many=True)
 
     class Meta:
@@ -24,23 +25,23 @@ class OwnerProfileSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('nickname', 'friends', 'friendcount', 'phone', 'gender', 'status')
 
 
-class OwnerChangeProfileSerializer(serializers.ModelSerializer):
+class OwnerChangeProfileSerializer(ModelSerializer):
     class Meta:
         model = UserProfile
         fields = ('user', 'nickname', 'phone', 'cover', 'gender')
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'password', 'email')
 
-    def create(self, validated_data):
-        serializers.raise_errors_on_nested_writes('create', self, validated_data)
-        ModelClass = self.Meta.model
-        object = ModelClass.objects.create(
-            username=validated_data['username'],
-            password=make_password(validated_data['password']),
-            email=validated_data.get('email', "")
-        )
-        return object
+    # def create(self, validated_data):
+    #     serializers.raise_errors_on_nested_writes('create', self, validated_data)
+    #     ModelClass = self.Meta.model
+    #     object = ModelClass.objects.create(
+    #         username=validated_data['username'],
+    #         password=make_password(validated_data['password']),
+    #         email=validated_data.get('email', "")
+    #     )
+    #     return object
