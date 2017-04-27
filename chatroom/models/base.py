@@ -72,7 +72,7 @@ class CacheBase(object):
     def create_model(cls, **kwargs):
         ret = cls.objects.create(**kwargs)
         cls.clear_redis(ret.id)
-        return ret.inserted_id
+        return ret
 
     @classmethod
     def update_model(cls, filters, data):

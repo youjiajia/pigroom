@@ -6,6 +6,8 @@ from rest_framework.exceptions import ValidationError
 from chatroom.models.user import UserProfile, User
 from chatroom.models.email import VerifyEmail
 from chatroom.base import const
+from chatroom.base.log import print_log
+import traceback
 from chatroom.base import util
 from chatroom.serializer.user import OwnerProfileSerializer, OwnerChangeProfileSerializer, UserSerializer
 from django.core.mail import EmailMultiAlternatives
@@ -55,7 +57,7 @@ class UserViewSet(mixins.CreateModelMixin,
 
         # send verify email
         try:
-            code = VerifyEmail(user.id)
+            code = VerifyEmail.get_email(user.id)
             verify_url = urljoin(ST.WEB_URL, const.INTERFACE.format(
                 name=util.get_md5(email),
                 code=code,
@@ -74,6 +76,7 @@ class UserViewSet(mixins.CreateModelMixin,
 
             msg.send()
         except:
+            print_log('app', '%s%s' % (traceback.format_exc(), request.data))
             raise ValidationError({"email": ["send email failure"]})
         return data
 
