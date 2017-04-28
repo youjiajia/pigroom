@@ -4,10 +4,10 @@ from django.contrib.auth.models import User as OldUser
 from playhouse.shortcuts import model_to_dict
 from chatroom.base.util import cached_object
 from chatroom.base import const
-from chatroom.models.base import BaseModel, CacheBase
+from chatroom.models.base import BaseModel
 
 
-class User(OldUser, CacheBase):
+class User(OldUser, BaseModel):
     pass
 
 

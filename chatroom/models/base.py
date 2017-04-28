@@ -7,7 +7,7 @@ import cPickle as cjson
 from playhouse.shortcuts import model_to_dict, dict_to_model
 
 
-class CacheBase(object):
+class BaseModel(TimeStampedModel):
     """
     基类
     """
@@ -98,8 +98,7 @@ class CacheBase(object):
 
     def save(self, **kwargs):
         self.clear_redis(self.id)
-        super(CacheBase, self).save(**kwargs)
+        super(BaseModel, self).save(**kwargs)
 
-
-class BaseModel(TimeStampedModel, CacheBase):
-    pass
+    class Meta:
+        abstract = True

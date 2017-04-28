@@ -73,7 +73,6 @@ class UserViewSet(mixins.CreateModelMixin,
             subject = const.VERIFY
             msg = EmailMultiAlternatives(subject, html_content, ST.EMAIL_FROM, [email])
             msg.attach_alternative(html_content, "text/html")
-
             msg.send()
         except:
             print_log('app', '%s%s' % (traceback.format_exc(), request.data))
